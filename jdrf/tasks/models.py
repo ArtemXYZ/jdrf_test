@@ -12,12 +12,3 @@ class Task(models.Model):
 
     def __str__(self):
         return self.title
-
-
-
-# Пример одного запроса на создание задачи и ответа на него в виде JSON
-# Создание задачи
-task = Task.objects.create(title="Забрать товар со склада", is_completed=False)
-
-# Доступ к id
-print(task.id)  # Выведет уникальный идентификатор задачи

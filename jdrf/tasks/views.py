@@ -3,6 +3,7 @@ from rest_framework import status
 from rest_framework.views import APIView
 from .models import Task
 from .serializers import TaskSerializer
+from rest_framework import generics
 
 
 # ----------------------------------------------------------------------------------------------------------------------
@@ -19,8 +20,3 @@ class TaskListCreateView(APIView):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-
-# class TaskListCreateView(generics.ListCreateAPIView):
-#     queryset = Task.objects.all()
-#     serializer_class = TaskSerializer
